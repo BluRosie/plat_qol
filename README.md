@@ -1,5 +1,14 @@
+# plat-qol
+C Injection Pokemon Platinum repository intended to be used in tandem with Following Platinum to create a number of Quality of Life changes that enhance the gameplay experience.
+
 # Features:
-TBD
+- [x] Unlimited TM's
+- [ ] HM Usage based on possession (in progress)
+- [ ] Faster surfing speed
+- [ ] Faster text printing
+- [ ] Faster HP bar drain
+- [ ] Press B to select RUN in wild battles
+- [ ] Pressing B toggles autorun
 
 # Contributing
 DM me on Discord (BluRose#0412)
