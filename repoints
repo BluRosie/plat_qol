@@ -1,0 +1,4 @@
+##FLD_EncEffSpData 020EC208
+##arm9 FLD_EncEffSpData 080EC208
+##8000000 + offset inside overlay/arm9
+#0016 OkodukaiTable 0800816C

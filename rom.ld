@@ -1,0 +1,72 @@
+FillWindowPixelBuffer = 0x0201ADA4| 1;
+ConvertNumToString = 0x02090184| 1;
+StringPut = 0x020900D8| 1;
+PutWindows = 0x0201A9A4| 1;/*0801A64C*/
+FreeSystem = 0x02018238| 1;
+sys_AllocMemory = 0x02018144 | 1;
+SaveData_GetDexPtr = 0x02027560 | 1;
+GetEventVar = 0x0203F098 |1;
+GetSaveDataPtr = 0x0202D834 | 1;
+SaveData_GetRepelPtr = 0x0202D9CC | 1;
+
+//ClearReq = 0x021D1C30 | 1; /*to rewrite in code*/
+//CheckReq = 0x021D1DA4 | 1; /*to rewrite in code*/
+//SetReq = 0x021D1CAC | 1; /*to rewrite in code*/
+
+EventSet_Script = 0x0203E880 | 1;
+Player_MoveStateGet = 0x0205EB14 | 1;
+Player_MoveValueGet = 0x0205EB0C;
+Player_DirGet = 0x0205EA78 | 1;
+Player_KeyDirGet = 0x02061308 | 1;
+PokeParaPut = 0x02074B30 | 1;
+CB_Tool_CoreData_Copy = 0x0202CA10 | 1;
+sys_FreeMemoryEz = 0x020181C4 | 1;
+
+/*Pokemon*/
+PokeParaCalc = 0x0207418C | 1;
+PokeLevelCalc = 0x02075B78 | 1;
+PokePasoParaPutAct = 0x02074CD8 | 1;
+PokeParaFastModeOn = 0x02073C88 | 1;
+PokeParaFastModeOff = 0x02073CD4 | 1;
+PokePasoParaSet = 0x02073E18 | 1;
+PokeParaInit = 0x02073C2C | 1;
+PokeParaCoded = 0x0207822C | 1;
+PokeFormNoPersonalDataGet = 0x02078208 | 1;
+PokeFormNoPersonalParaGet = 0x020759CC | 1;
+PokeChrAbiCalc = 0x02075C0C | 1;
+PokeSeikakuGet = 0x02075BCC | 1;
+PokeParaGet = 0x02074470 | 1;
+PokePasoParaGet = 0x02074570 | 1;
+PokePasoParaPut = 0x02074C60 | 1;
+AusuTypeGet = 0x02077988 | 1;
+PokeParaAdrsGet = 0x0207825C | 1;
+PokePasoParaSpeabiSet = 0x02078044 | 1;
+PokeSexGetMonsNo = 0x02075DAC | 1;
+PokeParaCheckSum = 0x0207823C | 1;
+PokePasoParaFastModeOn = 0x02073D20 | 1;
+PokePasoParaFastModeOff = 0x02073D48 | 1;
+
+/*Mail*/
+MailData_CreateWork = 0x0202818C | 1;
+MailData_Copy = 0x020281A0 | 1;
+
+/*Item*/
+ItemParamGet = 0x0207CFF0 | 1;
+
+/*Waza*/
+WT_PPMaxGet = 0x020790DC | 1;
+
+/*Encount stuff*/
+ENCEFF_GetEffectNo = 0x021DEEC8 | 1;
+/*Message*/
+MSGDAT_MonsNameGet = 0x0200B274 | 1;
+MSGDAT_UTIL_GetMonsName = 0x0200B32C | 1;
+STRBUF_Copy = 0x02023810 | 1; /*might be arm*/
+STRBUF_Delete = 0x020237BC | 1; /*might be arm*/
+STRBUF_SetStringCode = 0x02023D28 | 1;/*might be arm*/
+
+/*Trainer*/
+TT_TrainerDataParaGet = 0x02079220 | 1;
+/*CPU func*/
+MIi_CpuClearFast = 0x020C4BB8;
+memcpy = 0x020D50B8;

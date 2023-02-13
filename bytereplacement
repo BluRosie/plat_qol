@@ -1,0 +1,10 @@
+##expand arm9
+#arm9 08100E20 FC B5 05 48 41 21 09 22 04 4B 00 F0 03 F8 00 20 03 21 FC BD 18 47 00 00 00 80 3C 02 A5 6A 00 02
+#arm9 08000CB4 00 F1 B4 F8
+#arm9 080745D0 60 B4 C0 46
+
+#infinite tm's
+# don't clear tm when used
+arm9 080865EA 07 E0
+# clear item quantity from tm's in the bag
+0084 08004372 00 00 00 00

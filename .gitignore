@@ -1,0 +1,7 @@
+*.nds
+*.pyc
+base/*
+build/*
+offsets.ini
+*_DSPRE_contents/*
+*_SDSME_contents/*
