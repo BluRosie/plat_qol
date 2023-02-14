@@ -85,6 +85,7 @@ u32 __attribute__((long_call)) EvPoke_CheckWaza(void *party, u32 move_id);
 void * __attribute__((long_call)) SaveData_GetTemotiPokemon(void *savedata);
 u32 __attribute__((long_call)) MyItem_CheckItem(void *myitem, u32 item, u32 quantity, u32 heapid);
 void * __attribute__((long_call)) SaveData_GetMyItem(void *savedata);
+u32 __attribute__((long_call)) BtlTower_IsSalon(void *fsys);
 
 
 #endif // FIELD_SYS_INCLUDE

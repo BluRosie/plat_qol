@@ -68,5 +68,6 @@ enum {
 	ITEM_PRM_FRIEND3_POINT,			// なつき度3の値
 };
 
-s32 __attribute((long_call)) ItemParamGet( u16 item, u16 param, u32 heap_id );
+s32 __attribute__((long_call)) ItemParamGet( u16 item, u16 param, u32 heap_id );
+u32 __attribute__((long_call)) ItemMailCheck(u16 item);
 #endif

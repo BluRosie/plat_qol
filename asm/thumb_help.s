@@ -97,8 +97,22 @@ __aeabi_llsl:
     .global __higher
     .thumb_func
     .type __higher,function
-_higher:    sub    r2, #32        @ n >= 32:
+_higher:
+    sub    r2, #32        @ n >= 32:
     movs    r1, r0
     lsls    r1, r2        @ hi = lo << (n-32)
     movs    r0, #0        @ lo = 0
     bx    lr
+
+
+.global sprintf
+sprintf:
+    push {lr}
+    blx 0x020D7510
+    pop {pc}
+
+
+.global debugsyscall
+debugsyscall:
+    swi 0xFC
+    bx lr

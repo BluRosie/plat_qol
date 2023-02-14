@@ -96,4 +96,11 @@ EvPoke_CheckWaza = 0x020549A0 | 1;
 SaveData_GetTemotiPokemon = 0x0207A268 | 1;
 MyItem_CheckItem = 0x0207D688 | 1;
 SaveData_GetMyItem = 0x0207D990 | 1;
+PokeParty_GetMemberPointer = 0x0207A0FC | 1;
+BtlTower_IsSalon = 0x0206C0D0 | 1;
+PokeList_WazaMenuIDGet = 0x02080BCC | 1;
+PokeList_WazaMenuStrGet = 0x02081CAC | 1;
+ItemMailCheck = 0x0207D2D0 | 1;
+PokeWazaMachineCheck = 0x02077FE4 | 1;
+
 
