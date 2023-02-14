@@ -17,16 +17,23 @@ C Injection Pokemon Platinum repository intended to be used in tandem with Follo
 
 ![](screenshots/usable_hm3.png) ![](screenshots/usable_hm2.png)
 
-![](https://media.discordapp.net/attachments/490620027125628931/1075067792929329343/hms_usable.gif)
+![](screenshots/hms_usable.gif)
 
 </details>
 
+<details>
+<summary>- Pressing B toggles autorun</summary>
+<br>
+
+![](screenshots/autorun.gif)
+
+</details>
 
 - [ ] Faster surfing speed
 - [ ] Faster text printing
 - [ ] Faster HP bar drain
 - [ ] Press B to select RUN in wild battles
-- [ ] Pressing B toggles autorun
+
 
 # Contributing
 DM me on Discord (BluRose#0412)

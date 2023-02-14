@@ -25,4 +25,11 @@
 
 #define	ALL_DIRECTION_KEY     ( PAD_KEY_UP | PAD_KEY_DOWN | PAD_KEY_LEFT | PAD_KEY_RIGHT )
 
+
+int __attribute__((long_call)) Jiki_KeyDirXGet(u16 pressedKeys);
+int __attribute__((long_call)) Jiki_KeyDirZGet(u16 pressedKeys);
+int __attribute__((long_call)) Player_DirMoveGet(void *jiki);
+int __attribute__((long_call)) Player_InputKeyDirXGet(void *jiki);
+int __attribute__((long_call)) Player_InputKeyDirZGet(void *jiki);
+
 #endif

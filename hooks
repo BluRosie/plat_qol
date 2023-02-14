@@ -13,3 +13,5 @@
 #0005 CheckReq_hook 021D1DA6 3
 
 arm9 FieldModeMenuMake 020800B4 2
+arm9 Player_KeyDashCheck 020613FC 2
+arm9 Jiki_InputKeyDirGet 02061348 3

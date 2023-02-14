@@ -102,5 +102,8 @@ PokeList_WazaMenuIDGet = 0x02080BCC | 1;
 PokeList_WazaMenuStrGet = 0x02081CAC | 1;
 ItemMailCheck = 0x0207D2D0 | 1;
 PokeWazaMachineCheck = 0x02077FE4 | 1;
-
-
+Jiki_KeyDirXGet = 0x02061310 | 1;
+Jiki_KeyDirZGet = 0x0206132C | 1;
+Player_DirMoveGet = 0x0205EA94 | 1;
+Player_InputKeyDirXGet = 0x0205EBE0 | 1;
+Player_InputKeyDirZGet = 0x0205EBE8 | 1;
