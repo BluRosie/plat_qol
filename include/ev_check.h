@@ -31,7 +31,7 @@ typedef struct {
     u16 DebugBattle:1;
     u16 DebugHook:1;
     u16 DebugKeyPush:1;
-    u16 OpenPCCheck:1;
+    u16 FlyCheck:1;
     u16 Unused:3;
     u8 Site;
     s8 PushSite;
@@ -54,37 +54,37 @@ typedef enum
 	FIELD_CAMERA_LOOKAT_Z,
 }FIELD_CAMERA_TYPE;
 
-typedef struct {
-	void *ctrl; //CONTROL_WORK * ctrl;	///<制御用ワーク
-
-	void *fldmap; //FIELDMAP_WORK * fldmap;
-
-	void *bg1; //GF_BGL_INI * bgl;		///<BGLデータ
-
-	void *savedata; //SAVEDATA * savedata;	///<セーブされるゲーム進行データ
-
-	void *event; //GMEVENT_CONTROL * event;	///<イベント制御
-
-	void *eventdata; //EVENT_DATA * eventdata;		///<ゾーン毎イベントデータ
-
-	FIELD_SUBSCRN_TYPE subscreen;	///<サブ画面の種類指定
-	//fldmapに移動	POKETCH_WORK * poketch;
-
-	void *location; //LOCATION_WORK * location;		///<位置情報
-	
-	FIELD_CAMERA_TYPE camera_type;	//カメラタイプ test kaga 070927
-	void *camera_ptr; //GF_CAMERA_PTR	camera_ptr;		//カメラポインタ
-	void * map_cont_dat; //DMC_PTR	map_cont_dat;	//分割ロード構造体の経由参照用ポインタ
-	
-	void *World; //WORLD_MAP_PTR World;
-
-	void *MapResource; //MAP_RESOURCE_PTR MapResource;	//フィールド表示リソース参照用ポインタ
-	void *mmdl; //MMDL_WORK * mmdl;			///<エリア別動作モデルリストデータへのポインタ
-	
-	void *player_cont_dat; //PCD_PTR player_cont_dat;//自機座標構造体の経由参照用ポインタ
-	void *fldobjsys; //FIELD_OBJ_SYS_PTR fldobjsys;	//フィールドOBJ参照*
-	void *player; //PLAYER_STATE_PTR * player;	//自機情報参照ポインタ
-} __attribute__((packed)) FIELDSYS_WORK;
+//typedef struct {
+//	void *ctrl; //CONTROL_WORK * ctrl;	///<制御用ワーク
+//
+//	void *fldmap; //FIELDMAP_WORK * fldmap;
+//
+//	void *bg1; //GF_BGL_INI * bgl;		///<BGLデータ
+//
+//	void *savedata; //SAVEDATA * savedata;	///<セーブされるゲーム進行データ
+//
+//	void *event; //GMEVENT_CONTROL * event;	///<イベント制御
+//
+//	void *eventdata; //EVENT_DATA * eventdata;		///<ゾーン毎イベントデータ
+//
+//	FIELD_SUBSCRN_TYPE subscreen;	///<サブ画面の種類指定
+//	//fldmapに移動	POKETCH_WORK * poketch;
+//
+//	void *location; //LOCATION_WORK * location;		///<位置情報
+//	
+//	FIELD_CAMERA_TYPE camera_type;	//カメラタイプ test kaga 070927
+//	void *camera_ptr; //GF_CAMERA_PTR	camera_ptr;		//カメラポインタ
+//	void * map_cont_dat; //DMC_PTR	map_cont_dat;	//分割ロード構造体の経由参照用ポインタ
+//	
+//	void *World; //WORLD_MAP_PTR World;
+//
+//	void *MapResource; //MAP_RESOURCE_PTR MapResource;	//フィールド表示リソース参照用ポインタ
+//	void *mmdl; //MMDL_WORK * mmdl;			///<エリア別動作モデルリストデータへのポインタ
+//	
+//	void *player_cont_dat; //PCD_PTR player_cont_dat;//自機座標構造体の経由参照用ポインタ
+//	void *fldobjsys; //FIELD_OBJ_SYS_PTR fldobjsys;	//フィールドOBJ参照*
+//	void *player; //PLAYER_STATE_PTR * player;	//自機情報参照ポインタ
+//} __attribute__((packed)) FIELDSYS_WORK;
 
 typedef enum
 {
@@ -171,12 +171,25 @@ typedef struct {
 //	void * targetobj;
 }EVENT_WORK;
 
+
+#define DIR_NOT         (-1)
+#define DIR_UP			(0)								
+#define DIR_DOWN		(1)								
+#define DIR_LEFT		(2)								
+#define DIR_RIGHT		(3)
+
+#define	PAD_BUTTON_MENU		( PAD_BUTTON_X )	
+#define	PAD_BUTTON_BENRI	( PAD_BUTTON_Y )		
+#define	PAD_BUTTON_DECIDE	( PAD_BUTTON_A )	
+#define	PAD_BUTTON_CANCEL	( PAD_BUTTON_B )
+
+
 // also need to get function definitions + rom.ld entries for the following:
 
 int __attribute__((long_call)) Player_MoveStateGet( const void *jiki ); // int Player_MoveStateGet( const PLAYER_STATE_PTR jiki );
 int __attribute__((long_call)) Player_MoveValueGet(const void *jiki);
-int __attribute__((long_call)) Player_DirGet(const void * jiki);
+//int __attribute__((long_call)) Player_DirGet(const void * jiki);
 int __attribute__((long_call)) Player_KeyDirGet(void * jiki, u16 key_trg, u16 key_prs);
-void __attribute__((long_call)) EventSet_Script(FIELDSYS_WORK *fsys, u16 scr_id, void * obj);
+void __attribute__((long_call)) EventSet_Script(void *fsys, u16 scr_id, void * obj);
 
 #endif

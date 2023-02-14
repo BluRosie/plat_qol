@@ -1,5 +1,7 @@
 #include "../include/types.h"
+#include "../include/pad.h"
 #include "../include/common_scr_def.h"
+#include "../include/ev_check.h"
 #include "../include/field_sys.h"
 
 
@@ -56,4 +58,44 @@ u16 EvCheck_TalkMapAttr(struct FIELDSYS_WORK *repw, void *matr)
     }
     
     return (u16)~0;
+}
+
+
+void ClearReq(EV_REQUEST *req)
+{
+	req->TalkCheck  = FALSE;
+	req->StepCheck  = FALSE;
+	req->MenuOpen   = FALSE;
+	req->CnvButton  = FALSE;
+	req->MatCheck   = FALSE;
+	req->PushCheck  = FALSE;
+	req->MoveCheck  = FALSE;
+	req->FloatCheck = FALSE;
+	req->FlyCheck   = FALSE; // check if fly needs to be open
+
+	req->DebugMenu   = FALSE;
+	req->DebugBattle = FALSE;
+
+	req->DebugHook = FALSE;
+	req->DebugKeyPush = FALSE;
+	
+	req->Site = DIR_NOT;
+	req->PushSite = DIR_NOT;
+}
+
+void SetReq(EV_REQUEST *req, u16 trg)
+{
+	if( trg & PAD_BUTTON_SELECT ){
+        req->FlyCheck = TRUE;
+    }
+}
+
+int CheckReq(const EV_REQUEST *req, struct FIELDSYS_WORK *repw)
+{
+    if( req->FlyCheck )
+    {
+	    EventSet_Script(repw, SCRID_PC_ON, NULL);
+	    return TRUE;
+    }
+    return FALSE;
 }
