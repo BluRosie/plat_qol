@@ -2,8 +2,26 @@
 C Injection Pokemon Platinum repository intended to be used in tandem with Following Platinum to create a number of Quality of Life changes that enhance the gameplay experience.
 
 # Features:
-- [x] Unlimited TM's
-- [ ] HM Usage based on possession (in progress)
+<details>
+<summary>- Unlimited TM's</summary>
+<br>
+
+![](screenshots/infinite_tms0.png)
+</details>
+
+<details>
+<summary>- HM Usage based on possession</summary>
+<br>
+
+![](screenshots/usable_hm0.png) ![](screenshots/usable_hm1.png) 
+
+![](screenshots/usable_hm3.png) ![](screenshots/usable_hm2.png)
+
+![](https://media.discordapp.net/attachments/490620027125628931/1075067792929329343/hms_usable.gif)
+
+</details>
+
+
 - [ ] Faster surfing speed
 - [ ] Faster text printing
 - [ ] Faster HP bar drain
