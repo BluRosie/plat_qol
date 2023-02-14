@@ -48,7 +48,7 @@ REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
 LINKED_SECTIONS = ['build/linked.o']
-OFFSET_START_IN_129 = 0x023C8000 + 0x1000
+OFFSET_START_IN_129 = 0x023C8000 + 0x13CD0
 OFFSET_START = [0x023C8000]
 
 def ExtractPointer(byteList: [bytes]):
@@ -283,7 +283,7 @@ def hook():
 
 
 def writeall():
-    OFFECTSFILES = "build/data/weather_sys_09"
+    OFFECTSFILES = "build/data/weather_sys_66"
     with open(OFFECTSFILES, 'wb+') as rom:
         print("Inserting code.")
         table = GetSymbols()

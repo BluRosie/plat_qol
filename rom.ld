@@ -70,3 +70,30 @@ TT_TrainerDataParaGet = 0x02079220 | 1;
 /*CPU func*/
 MIi_CpuClearFast = 0x020C4BB8;
 memcpy = 0x020D50B8;
+
+
+Player_DirGet = 0x0205EA78 | 1;
+MATR_IsPC = 0x0205DBE4 | 1;
+MATR_IsLittleBookRack01 = 0x0205DC80 | 1;
+MATR_IsLittleBookRack02 = 0x0205DC8C | 1;
+MATR_IsBookRack01 = 0x0205DC98 | 1;
+MATR_IsBookRack02 = 0x0205DCA4 | 1;
+MATR_IsTrashBox = 0x0205DCB0 | 1;
+MATR_IsShopBookRack01 = 0x0205DCBC | 1;
+MATR_IsShopBookRack02 = 0x0205DCC8 | 1;
+MATR_IsShopBookRack03 = 0x0205DCD4 | 1;
+MATR_IsWaterFall = 0x0205DDB4 | 1;
+MATR_IsMap = 0x0205DBF0 | 1;
+MATR_IsBumpPost = 0x0205DDC0 | 1;
+MATR_IsTV = 0x0205DE84 | 1;
+Player_EventAttrCheck_KabeNobori = 0x021E0760 | 1;
+Player_FormGet = 0x0205EB74 | 1;
+SaveData_GetMyStatus = 0x02025E38 | 1;
+Player_TwThinkNowAttrGet = 0x02061760 | 1;
+Player_EventAttrCheck_Naminori = 0x021E0118 | 1;
+MyStatus_GetBadgeFlag = 0x02025F34 | 1;
+EvPoke_CheckWaza = 0x020549A0 | 1;
+SaveData_GetTemotiPokemon = 0x0207A268 | 1;
+MyItem_CheckItem = 0x0207D688 | 1;
+SaveData_GetMyItem = 0x0207D990 | 1;
+
