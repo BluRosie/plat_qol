@@ -46,6 +46,9 @@ C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
 BUILD = build
+BUILD_NARC = $(BUILD)/narc
+BASE = base
+FILESYS = $(BASE)/root
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
 
@@ -77,7 +80,7 @@ $(OUTPUT):$(LINK)
 ########## All ###############
 ##Make sure to also change the necessary fields in here too !
 all:$(OUTPUT)
-	@mkdir -p base build build/data
+	@mkdir -p base $(BUILD) $(BUILD)/data $(BUILD_NARC)
 	@rm -rf build/data/*
 	@$(NDSTOOL) -x $(ROMNAME) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
 	@echo -e "\e[32;1mCreated Successfully!!\e[37;1m"
@@ -87,6 +90,7 @@ all:$(OUTPUT)
 	@$(PYTHON) scripts/insert.py
 	@echo -e "\e[32;1mSkip synth overlay verification\e[37;1m"
 	@$(ARMIPS) armips/nop_verification.s
+	$(MAKE) move_narc
 	@$(NARCHIVE) create base/root/data/weather_sys.narc build/data/ -nf
 	@echo -e "\e[32;1mBuild Rom\e[37;1m"
 	@$(NDSTOOL) -c $(BUILDROM) -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
@@ -111,6 +115,25 @@ build_tools:
 	cd tools/source/armips/build ; cmake --build .
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
+
+
+SCR_SEQ_TARGET = $(FILESYS)/fielddata/script/scr_seq.narc
+SCR_SEQ_DIR = $(BUILD)/scr_seq
+SCR_SEQ_NARC = $(BUILD_NARC)/scr_seq.narc
+SCR_SEQ_DEPENDENCIES_DIR := rawdata/scripts
+SCR_SEQ_DEPENDENCIES := $(SCR_SEQ_DEPENDENCIES_DIR)/*
+
+$(SCR_SEQ_NARC): $(SCR_SEQ_DEPENDENCIES)
+	@mkdir -p $(SCR_SEQ_DIR)
+	@$(NARCHIVE) extract $(SCR_SEQ_TARGET) -o $(SCR_SEQ_DIR) -nf
+	@cp -r $(SCR_SEQ_DEPENDENCIES_DIR)/. $(SCR_SEQ_DIR)
+	@$(NARCHIVE) create $@ $(SCR_SEQ_DIR) -nf
+
+NARC_FILES += $(SCR_SEQ_NARC)
+
+
+move_narc: $(NARC_FILES)
+	@cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
 
 
 clean:
