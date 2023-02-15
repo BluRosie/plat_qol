@@ -2,7 +2,8 @@
 .align 2
 .thumb
 
-.global Jiki_MoveNormalWalk_hook
+// following platinum rewrote this in their own synthetic overlay.  this is handled in armips/new_things.s
+/*.global Jiki_MoveNormalWalk_hook
 Jiki_MoveNormalWalk_hook:
 ldr r5, =Jiki_MoveNormalWalk_return_address
 mov r6, lr
@@ -32,4 +33,4 @@ mov pc, r1
 .pool
 
 Player_KeyMoveSelectAcmdCodeGet_return_address:
-.word 0
+.word 0*/

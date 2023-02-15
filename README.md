@@ -29,7 +29,14 @@ C Injection Pokemon Platinum repository intended to be used in tandem with Follo
 
 </details>
 
-- [ ] Faster surfing speed
+<details>
+<summary>- Faster surfing speed</summary>
+<br>
+
+![](screenshots/surf_speed.gif)
+
+</details>
+
 - [ ] Faster text printing
 - [ ] Faster HP bar drain
 - [ ] Press B to select RUN in wild battles

@@ -57,7 +57,8 @@ int Jiki_InputKeyDirGet(void *jiki, u16 key_trg, u16 key_prs)
 }
 
 
-void Jiki_MoveNormalWalk(void *jiki, void *fldobj, int dir, u16 trg, u16 prs)
+// following platinum rewrote this in their own synthetic overlay.  this is handled in armips/new_things.s
+/*void Jiki_MoveNormalWalk(void *jiki, void *fldobj, int dir, u16 trg, u16 prs)
 {
     u32 ret;
     int code;
@@ -209,4 +210,4 @@ u32 Player_KeyMoveSelectAcmdCodeGet(void *jiki, u16 trg, u16 prs, int speed, int
         return(code);
     }
     return 0xFF;
-}
+}*/

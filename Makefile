@@ -89,7 +89,7 @@ all:$(OUTPUT)
 	@echo -e "\e[32;1mInsert code\e[37;1m"
 	@$(PYTHON) scripts/insert.py
 	@echo -e "\e[32;1mSkip synth overlay verification\e[37;1m"
-	@$(ARMIPS) armips/nop_verification.s
+	@$(ARMIPS) armips/new_things.s
 	$(MAKE) move_narc
 	@$(NARCHIVE) create base/root/data/weather_sys.narc build/data/ -nf
 	@echo -e "\e[32;1mBuild Rom\e[37;1m"
