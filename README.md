@@ -37,8 +37,8 @@ C Injection Pokemon Platinum repository intended to be used in tandem with Follo
 
 </details>
 
-- [ ] Faster text printing
-- [ ] Faster HP bar drain
+- Faster HP bar drain
+
 - [ ] Press B to select RUN in wild battles
 
 
