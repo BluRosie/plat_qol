@@ -8,3 +8,6 @@
 arm9 080865EA 07 E0
 # clear item quantity from tm's in the bag
 0084 08004372 00 00 00 00
+
+arm9 0205FDC8 60 B4 C0 46
+arm9 02061540 60 B4 C0 46

@@ -15,3 +15,5 @@
 arm9 FieldModeMenuMake 020800B4 2
 arm9 Player_KeyDashCheck 020613FC 2
 arm9 Jiki_InputKeyDirGet 02061348 3
+arm9 Jiki_MoveNormalWalk_hook 0205FDCC 5
+arm9 Player_KeyMoveSelectAcmdCodeGet_hook 02061544 5
