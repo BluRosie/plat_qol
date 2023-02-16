@@ -12,7 +12,7 @@ u16 EvCheck_TalkMapAttr(struct FIELDSYS_WORK *repw, void *matr)
 {
     int dir = Player_DirGet(repw->player);
 
-    if (MATR_IsPC(matr) && dir == 2) { // facing up
+    if (MATR_IsPC(matr) && dir == 0) { // facing up
         return SCRID_PC_ON;
     }else if (MATR_IsLittleBookRack01(matr)) {
         return SCRID_LITTLE_RACK1;
@@ -36,7 +36,7 @@ u16 EvCheck_TalkMapAttr(struct FIELDSYS_WORK *repw, void *matr)
         return SCRID_TMAP_BG;
     }else if (MATR_IsBumpPost(matr)) {
         return SCRID_BUMP_POST;
-    }else if (MATR_IsTV(matr) && dir == 2) {
+    }else if (MATR_IsTV(matr) && dir == 0) {
         return SCRID_TV;
     }
 
