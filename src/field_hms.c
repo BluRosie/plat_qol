@@ -59,7 +59,7 @@ u16 EvCheck_TalkMapAttr(struct FIELDSYS_WORK *repw, void *matr)
             }
         }
     }
-    
+
     return (u16)~0;
 }
 
@@ -81,7 +81,7 @@ void ClearReq(EV_REQUEST *req)
 
     req->DebugHook = FALSE;
     req->DebugKeyPush = FALSE;
-    
+
     req->Site = DIR_NOT;
     req->PushSite = DIR_NOT;
 }
@@ -131,8 +131,8 @@ u8 FieldModeMenuMake(struct PLIST_WORK *wk, u8 *prm)
 {
     POKEMON_PARAM * pp = PokeParty_GetMemberPointer(wk->dat->pp, wk->pos);
     u16 waza;
-    u8  h=0, i, j=0, mid;
-    u8 buf[64];
+    u8  h=0, i, j=0, k=0, l=0, mid;
+    u16 buf[4];
 
     prm[j] = 1; // status
     j++;
@@ -140,20 +140,48 @@ u8 FieldModeMenuMake(struct PLIST_WORK *wk, u8 *prm)
     {
         if (wk->panel[wk->pos].egg == 0)
         {
-            //for( i=0; i<4; i++ ){
-            //    waza = (u16)PokeParaGet( pp, ID_PARA_waza1+i, NULL );
-            //    if( waza == 0 ){ break; }
-            //    mid = PokeList_WazaMenuIDGet( waza );
-            //
-            //    if( mid != 0xff ){
-            //        prm[j] = mid;
-            //        j++;
-            //        PokeList_WazaMenuStrGet( wk, waza, h );
-            //        h++;
-            //    }
-            //}
             u32 species = PokeParaGet(pp, ID_PARA_monsno, NULL);
             u32 form = PokeParaGet(pp, ID_PARA_form_no, NULL);
+            // first check for moves the pokemon knows
+            for( i=0; i<4; i++ ){
+                waza = (u16)PokeParaGet( pp, ID_PARA_waza1+i, NULL );
+                if( waza == 0 ){ break; }
+                for (k=0; k<8; k++)
+                {
+                    if (waza == HMList[k].move)
+                    {
+                        buf[l] = waza;
+                        l++;
+                        waza = MOVE_GUILLOTINE;
+                        break;
+                    }
+                }
+                if ( waza == MOVE_GUILLOTINE ) { continue; } // print hm moves after all the sweet scent/dig moves
+                mid = PokeList_WazaMenuIDGet( waza );
+
+                if( mid != 0xff ){
+                    prm[j] = mid;
+                    j++;
+                    PokeList_WazaMenuStrGet( wk, waza, h );
+                    h++;
+                }
+            }
+            // requeue the moves that were hm's that it could have known
+            for (i = 0; i < 4; i++)
+            {
+                waza = buf[i];
+                if (waza == 0) { break; }
+                mid = PokeList_WazaMenuIDGet(waza);
+
+                if( mid != 0xff ){
+                    prm[j] = mid;
+                    j++;
+                    PokeList_WazaMenuStrGet( wk, waza, h );
+                    h++;
+                }
+
+            }
+            // then check for the hm's the pokemon can know
             for (i = 0; i < 8; i++)
             {
                 if (PokeWazaMachineCheck(species, form, 92+HMList[i].distance) != 0) // hm01 = tm93
