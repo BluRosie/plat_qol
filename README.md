@@ -37,9 +37,21 @@ C Injection Pokemon Platinum repository intended to be used in tandem with Follo
 
 </details>
 
-- Faster HP bar drain
+<details>
+<summary>- Press B to select RUN in wild battles</summary>
+<br>
 
-- [ ] Press B to select RUN in wild battles
+![](screenshots/run_from_battle.gif)
+
+</details>
+
+<details>
+<summary>- Faster HP bar drain</summary>
+<br>
+
+![](screenshots/hp_drain.gif)
+
+</details>
 
 
 # Contributing

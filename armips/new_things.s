@@ -23,6 +23,11 @@
 .open "build/data/weather_sys.narc_65", 0x023C8000
 
 
+.org 0x023CB01C // smack dab in the middle of the last routine
+    bl toggleRunForSurf
+
+
+.orga 0x13CD0
 
 // r1 is sys.trg
 // r5 is PAD_BUTTON_A
@@ -65,11 +70,7 @@ call_via_r3:
 .pool
 
 
-.org 0x023CB01C // smack dab in the middle of the last routine
-    bl toggleRunForSurf
 
-
-.orga 0x13CD0
 
 toggleRunForSurf:
     push {lr}
