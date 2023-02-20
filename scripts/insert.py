@@ -285,11 +285,14 @@ def hook():
 def writeall():
     OFFECTSFILES = "build/data/weather_sys.narc_65"
     with open(OFFECTSFILES, 'rb+') as rom:
+        bx_lr = bytes([0x70, 0x47])
         print("Inserting code.")
         table = GetSymbols()
         with open(OUTPUT, 'rb') as binary:
             rom.seek(OFFSET_START_IN_129 - OFFSET_START[0])
             rom.write(binary.read())
+            rom.seek(0x023CDBB8 - OFFSET_START[0])
+            rom.write(bx_lr)
             binary.close()
         rom.close()
 

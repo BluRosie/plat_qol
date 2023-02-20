@@ -2,9 +2,6 @@
 .thumb
 
 
-.include "armips/nop_verification.s"
-
-
 
 .open "base/overlay/overlay_0016.bin", 0x0223B140
 
