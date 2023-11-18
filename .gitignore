@@ -1,4 +1,5 @@
 *.nds
+*.sav
 *.pyc
 base/*
 build/*

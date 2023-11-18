@@ -1,14 +1,4 @@
 # Makefile
-ifeq ($(strip $(DEVKITPRO)),)
-$(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path to>devkitPro)
-endif
-
-ifeq ($(strip $(DEVKITARM)),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
-endif
-
-TOOLCHAIN := $(DEVKITARM)
-
 .PHONY: clean all
 
 
@@ -27,11 +17,19 @@ NDSTOOL = tools/ndstool
 ARMIPS = tools/armips
 
 ####################### Setting ########################
+ifeq ($(strip $(DEVKITPRO)),)
+PREFIX = arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
+else
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
+endif
 
 LDFLAGS = rom.ld -T linker.ld
 ASFLAGS = -mthumb -I ./data
