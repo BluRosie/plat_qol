@@ -24,6 +24,8 @@ typedef volatile s64 vs64;
 
 #define NULL                ((void *)0)
 
+#define NELEMS(array) (sizeof(array) / sizeof(array[0]))
+
 typedef float  f32;
 typedef double f64;
 typedef s32 fx32;
@@ -81,5 +83,9 @@ struct _STRBUF {
 
 #define FALSE           (0)
 #define TRUE            (1)
+
+
+#define LONG_CALL __attribute__((long_call))
+
 
 #endif

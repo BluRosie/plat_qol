@@ -4,13 +4,13 @@
 
 0005 EvCheck_TalkMapAttr 021D271C 2
 
-## ClearReq - 021D1C30
-#0005 ClearReq 021D1C30 1
-## SetReq - 021D1CAC
-## hook at 21d1ce2
-#0005 SetReq_hook 021D1CE2 0
-## CheckReq - 021D1DA4+2
-#0005 CheckReq_hook 021D1DA6 3
+# ClearReq - 021D1C30
+0005 ClearReq 021D1C30 1
+# SetReq - 021D1CAC
+# hook at 21d1ce2
+0005 SetReq_hook 021D1CE2 0
+# CheckReq - 021D1DA4+2
+0005 CheckReq_hook 021D1DA6 3
 
 arm9 FieldModeMenuMake 020800B4 2
 arm9 Player_KeyDashCheck 020613FC 2
@@ -18,3 +18,5 @@ arm9 Jiki_InputKeyDirGet 02061348 3
 ### following platinum rewrote this in their own synthetic overlay.  this is handled in armips/new_things.s
 #arm9 Jiki_MoveNormalWalk_hook 0205FDCC 5
 #arm9 Player_KeyMoveSelectAcmdCodeGet_hook 02061544 5
+
+0005 QuickSand_Update 021EE768 3

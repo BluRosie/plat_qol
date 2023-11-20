@@ -1,16 +1,33 @@
 #ifndef FIELD_SYS_INCLUDE
 #define FIELD_SYS_INCLUDE
 
+#include "types.h"
+
+// from https://github.com/gainax3/retsam_00jupc/blob/main/src/field/fieldmap_work.h
+
+struct FIELDMAP_WORK {
+	BOOL main_mode_flag;
+	void * fmapfunc_sys;
+	void * place_name_cont;
+	void * weather_data;
+	void * field_trans_anime;
+	void * poketch;
+	void * seedsys;
+	void * hblanksys;
+	void * poisoneffect;
+
+	void *Work;
+};
+
 // from https://github.com/gainax3/retsam_00jupc/blob/main/src/field/fieldsys.h
 
 struct FIELDSYS_WORK
 {
-    u8 pad_x0[0xC];
-    //CONTROL_WORK * ctrl;
-    //FIELDMAP_WORK * fldmap;
-    //GF_BGL_INI * bgl;
-    void *savedata;
-    u8 pad_x10[0x2C];
+    /* 0x00 */ void * ctrl;
+    /* 0x04 */ struct FIELDMAP_WORK * fldmap;
+    /* 0x08 */ void * bgl;
+    /* 0x0C */ void *savedata;
+    /* 0x10 */ u8 pad_x10[0x2C];
     //GMEVENT_CONTROL * event;
     //EVENT_DATA * eventdata;
     //FIELD_SUBSCRN_TYPE subscreen;
@@ -22,13 +39,14 @@ struct FIELDSYS_WORK
     //MAP_RESOURCE_PTR MapResource;
     //MMDL_WORK * mmdl;
     //FIELD_OBJ_SYS_PTR fldobjsys;
-    void *player;
+    /* 0x3C */ void *player;
+    /* 0x40 */ u8 pad_x40[0x10];
     //u8 pad_x40[];
     //FE_SYS *fes;
     //GLST_DATA_PTR       glst_data;
     //FOG_DATA_PTR        fog_data;
     //LIGHT_CONT_PTR      light_cont_data;
-    //FLD_3D_ANM_MNG_PTR  field_3d_anime;
+    /* 0x50 */ void *field_3d_anime;
     //ANIME_CONT_MNG_PTR  AnimeContMng;
     //SMD_PTR             SpMatData;
     //MTL_CONST_PTR       map_tool_list;
@@ -241,51 +259,55 @@ enum
 };
 
 
-u32 __attribute__((long_call)) Player_DirGet(void *player);
-u32 __attribute__((long_call)) MATR_IsPC(void *matr);
-u32 __attribute__((long_call)) MATR_IsLittleBookRack01(void *matr);
-u32 __attribute__((long_call)) MATR_IsLittleBookRack02(void *matr);
-u32 __attribute__((long_call)) MATR_IsBookRack01(void *matr);
-u32 __attribute__((long_call)) MATR_IsBookRack02(void *matr);
-u32 __attribute__((long_call)) MATR_IsTrashBox(void *matr);
-u32 __attribute__((long_call)) MATR_IsShopBookRack01(void *matr);
-u32 __attribute__((long_call)) MATR_IsShopBookRack02(void *matr);
-u32 __attribute__((long_call)) MATR_IsShopBookRack03(void *matr);
-u32 __attribute__((long_call)) MATR_IsWaterFall(void *matr);
-u32 __attribute__((long_call)) MATR_IsMap(void *matr);
-u32 __attribute__((long_call)) MATR_IsBumpPost(void *matr);
-u32 __attribute__((long_call)) MATR_IsTV(void *matr);
-u32 __attribute__((long_call)) Player_EventAttrCheck_KabeNobori(void *matr, u32 dir);
-u32 __attribute__((long_call)) Player_FormGet(void *player);
-void * __attribute__((long_call)) Player_FieldOBJGet(void *jiki);
-void * __attribute__((long_call)) SaveData_GetMyStatus(void *savedata);
-u32 __attribute__((long_call)) Player_TwThinkNowAttrGet(void *player);
-u32 __attribute__((long_call)) Player_EventAttrCheck_Naminori(void *player, u32 natr, void *matr);
-u32 __attribute__((long_call)) MyStatus_GetBadgeFlag(void *mystatus, u32 badge_id);
-u32 __attribute__((long_call)) EvPoke_CheckWaza(void *party, u32 move_id);
-void * __attribute__((long_call)) SaveData_GetTemotiPokemon(void *savedata);
-u32 __attribute__((long_call)) MyItem_CheckItem(void *myitem, u32 item, u32 quantity, u32 heapid);
-void * __attribute__((long_call)) SaveData_GetMyItem(void *savedata);
-u32 __attribute__((long_call)) BtlTower_IsSalon(void *fsys);
+u32 LONG_CALL Player_DirGet(void *player);
+u32 LONG_CALL MATR_IsPC(void *matr);
+u32 LONG_CALL MATR_IsLittleBookRack01(void *matr);
+u32 LONG_CALL MATR_IsLittleBookRack02(void *matr);
+u32 LONG_CALL MATR_IsBookRack01(void *matr);
+u32 LONG_CALL MATR_IsBookRack02(void *matr);
+u32 LONG_CALL MATR_IsTrashBox(void *matr);
+u32 LONG_CALL MATR_IsShopBookRack01(void *matr);
+u32 LONG_CALL MATR_IsShopBookRack02(void *matr);
+u32 LONG_CALL MATR_IsShopBookRack03(void *matr);
+u32 LONG_CALL MATR_IsWaterFall(void *matr);
+u32 LONG_CALL MATR_IsMap(void *matr);
+u32 LONG_CALL MATR_IsBumpPost(void *matr);
+u32 LONG_CALL MATR_IsTV(void *matr);
+u32 LONG_CALL Player_EventAttrCheck_KabeNobori(void *matr, u32 dir);
+u32 LONG_CALL Player_FormGet(void *player);
+void * LONG_CALL Player_FieldOBJGet(void *jiki);
+void * LONG_CALL SaveData_GetMyStatus(void *savedata);
+u32 LONG_CALL Player_TwThinkNowAttrGet(void *player);
+u32 LONG_CALL Player_EventAttrCheck_Naminori(void *player, u32 natr, void *matr);
+u32 LONG_CALL MyStatus_GetBadgeFlag(void *mystatus, u32 badge_id);
+u32 LONG_CALL EvPoke_CheckWaza(void *party, u32 move_id);
+void * LONG_CALL SaveData_GetTemotiPokemon(void *savedata);
+u32 LONG_CALL MyItem_CheckItem(void *myitem, u32 item, u32 quantity, u32 heapid);
+void * LONG_CALL SaveData_GetMyItem(void *savedata);
+u32 LONG_CALL BtlTower_IsSalon(void *fsys);
 
 
-void __attribute__((long_call)) Jiki_MoveNormal(void *, void *, void *, int, u16, u16);
-void __attribute__((long_call)) Jiki_MoveCycle(void *, void *, void *, int, u16, u16);
-void __attribute__((long_call)) Jiki_MoveCycle4(void *, void *, void *, int, u16, u16);
-u32 __attribute__((long_call)) Player_MoveSpeedAdd(void *, u32, u32);
-u32 __attribute__((long_call)) Player_MoveHitCheck(void *jiki, void *fldobj, int dir);
-void __attribute__((long_call)) FieldOBJ_DirMoveSet(void *fldobj, int dir);
-void Snd_SePlay(u32 id);
-void * __attribute__((long_call)) Player_SaveDataPtrGet(void *jiki);
-u32 __attribute__((long_call)) Player_SaveDataDashCheck(void *savedata);
-u32 __attribute__((long_call)) Jiki_MoveNormalAttrAcmdWalkGet(void *fldobj, u32 attr, u32 code);
-u32 __attribute__((long_call)) FieldOBJ_NowMapAttrGet(void *fldobj);
-void __attribute__((long_call)) Jiki_WalkCount(void *jiki);
-void __attribute__((long_call)) Player_MoveBitSet_StepON(void *jiki);
-u32 __attribute__((long_call)) FieldOBJ_AcmdCodeDirChange(u32 dir, u32 code);
-void __attribute__((long_call)) Jiki_AcmdSet(void *jiki, void *fldobj, u32 code, u32 type);
-int __attribute__((long_call)) Player_MoveSelectValueCheck(void *jiki, int dir);
-void __attribute__((long_call)) Player_MoveValueSet(void *jiki, int value);
+void LONG_CALL Jiki_MoveNormal(void *, void *, void *, int, u16, u16);
+void LONG_CALL Jiki_MoveCycle(void *, void *, void *, int, u16, u16);
+void LONG_CALL Jiki_MoveCycle4(void *, void *, void *, int, u16, u16);
+u32 LONG_CALL Player_MoveSpeedAdd(void *, u32, u32);
+u32 LONG_CALL Player_MoveHitCheck(void *jiki, void *fldobj, int dir);
+void LONG_CALL FieldOBJ_DirMoveSet(void *fldobj, int dir);
+void LONG_CALL Snd_SePlay(u32 id);
+void * LONG_CALL Player_SaveDataPtrGet(void *jiki);
+u32 LONG_CALL Player_SaveDataDashCheck(void *savedata);
+u32 LONG_CALL Jiki_MoveNormalAttrAcmdWalkGet(void *fldobj, u32 attr, u32 code);
+u32 LONG_CALL FieldOBJ_NowMapAttrGet(void *fldobj);
+void LONG_CALL Jiki_WalkCount(void *jiki);
+void LONG_CALL Player_MoveBitSet_StepON(void *jiki);
+u32 LONG_CALL FieldOBJ_AcmdCodeDirChange(u32 dir, u32 code);
+void LONG_CALL Jiki_AcmdSet(void *jiki, void *fldobj, u32 code, u32 type);
+int LONG_CALL Player_MoveSelectValueCheck(void *jiki, int dir);
+void LONG_CALL Player_MoveValueSet(void *jiki, int value);
+
+int LONG_CALL Player_NowGPosXGet(void *player);
+int LONG_CALL Player_NowGPosZGet(void *player);
+u8 LONG_CALL GetAttributeLSB(struct FIELDSYS_WORK *fsys, int x, int z);
 
 
 #endif // FIELD_SYS_INCLUDE

@@ -125,3 +125,18 @@ FieldOBJ_AcmdCodeDirChange = 0x02065838 | 1;
 Jiki_AcmdSet = 0x02060B64 | 1;
 Player_MoveSelectValueCheck = 0x02061434 | 1;
 Player_MoveValueSet = 0x0205EB08 | 1;
+
+/* models gang */
+MPTL_MakeTargetRect = 0x020550F4 | 1;
+MPTL_CheckPluralMap3DObjInRect = 0x02055208 | 1;
+M3DO_GetRenderObj = 0x021E18BC | 1;
+F3DA_SetFld3DAnime = 0x021D3B24 | 1;
+F3DA_GetFld3DAnmPtr = 0x021D3DE4 | 1;
+F3DA_SetStartFrame = 0x021D3E7C | 1;
+F3DA_SetStopFlg = 0x021D3E40 | 1;
+F3DA_MoveAnime = 0x021D3E44 | 1;
+FLDMAPFUNC_Create = 0x021D1B6C | 1;
+Player_NowGPosXGet = 0x0205EABC | 1;
+Player_NowGPosZGet = 0x0205EAC8 | 1;
+/* get coordinate collision!!!!! */
+GetAttributeLSB = 0x02054F94 | 1;

@@ -124,8 +124,8 @@ struct HM_LIST_PRIORITY HMList[] =
 };
 
 
-u32 __attribute__((long_call)) PokeList_WazaMenuIDGet(u16 move);
-void __attribute__((long_call)) PokeList_WazaMenuStrGet(struct PLIST_WORK *wk, u32 move, u32 index);
+u32 LONG_CALL PokeList_WazaMenuIDGet(u16 move);
+void LONG_CALL PokeList_WazaMenuStrGet(struct PLIST_WORK *wk, u32 move, u32 index);
 
 u8 FieldModeMenuMake(struct PLIST_WORK *wk, u8 *prm)
 {
