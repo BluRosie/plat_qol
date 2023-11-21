@@ -9,6 +9,11 @@
 #include "../include/pokemon.h"
 
 
+/*void LONG_CALL Fld3DAnm_StartQuickSandAnime(	const int inGridX,
+									const int inGridZ,
+									const int inAnmNo,
+									struct FIELDSYS_WORK * fsys);*/
+
 
 void Fld3DAnm_StartQuickSandAnime(	const int inGridX,
 									const int inGridZ,
@@ -56,28 +61,35 @@ void QuickSand_Update(FLDMAPFUNC_WORK * fwk, struct FIELDSYS_WORK * fsys, void *
 	{
 		x = 306;
 		z = 718;
+		if ((info->GridX == x)&&(info->GridZ == z)){
+			return;
+		}
+
+		info->GridX = x;
+		info->GridZ = z;
+		anime_no = 1;
 	}
 	else {
 		x = Player_NowGPosXGet(fsys->player);
 		z = Player_NowGPosZGet(fsys->player);
 
-	}
+		if ((info->GridX == x)&&(info->GridZ == z)){
+			return;
+		}
 
-	if ((info->GridX == x)&&(info->GridZ == z)){
-		return;
-	}
+		info->GridX = x;
+		info->GridZ = z;
 
-	info->GridX = x;
-	info->GridZ = z;
+		attr = GetAttributeLSB(fsys, x, z);
+		
+		if (attr == 0xDA){
+			anime_no = 0;
+		}else if (attr == 0xD9){
+			anime_no = 1;
+		}else{
+			return;
+		}
 
-	attr = GetAttributeLSB(fsys, x, z);
-	
-	if (attr == 0xDA){
-		anime_no = 0;
-	}else if (attr == 0xD9){
-		anime_no = 1;
-	}else{
-		return;
 	}
 	Fld3DAnm_StartQuickSandAnime(x, z, anime_no, fsys);
 }
@@ -88,6 +100,7 @@ const FLDMAPFUNC_DATA QuickSandData = {
 	sizeof(QUICK_SAND_POS_INFO),
 	(void *)0x021EE75D,
 	(void *)0x021EE765,
+	//(void *)0x021EE769,
 	QuickSand_Update,
 	NULL
 };

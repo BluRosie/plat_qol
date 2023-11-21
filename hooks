@@ -19,4 +19,5 @@ arm9 Jiki_InputKeyDirGet 02061348 3
 #arm9 Jiki_MoveNormalWalk_hook 0205FDCC 5
 #arm9 Player_KeyMoveSelectAcmdCodeGet_hook 02061544 5
 
-0005 QuickSand_Update 021EE768 3
+#0005 QuickSand_Update 021EE768 3
+0005 QuickSand_CheckTask 021EE7C0 3

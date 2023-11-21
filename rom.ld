@@ -140,3 +140,4 @@ Player_NowGPosXGet = 0x0205EABC | 1;
 Player_NowGPosZGet = 0x0205EAC8 | 1;
 /* get coordinate collision!!!!! */
 GetAttributeLSB = 0x02054F94 | 1;
+/*Fld3DAnm_StartQuickSandAnime = 0x021D4D78 | 1;*/
